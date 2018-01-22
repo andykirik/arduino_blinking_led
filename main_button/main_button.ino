@@ -23,6 +23,7 @@ void setup()
 {
 	pinMode(LED, OUTPUT);	          // Initialize Pin 12 as Digital Output
 	pinMode(BUTTON, INPUT_PULLUP);	// Initialize Pin 4 as Input
+  digitalWrite(LED, LOW);
 }
 
 void loop() 
