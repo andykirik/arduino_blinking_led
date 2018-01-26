@@ -10,20 +10,24 @@
  *  Board connection (Arduino Uno):
  *   PIN        	Module                         				  
  * ------------------------------------------                        
- *   13		        LED
+ *   12		        LED
  *
- *   2             	BUTTON
+ *   4           	BUTTON (don't forget pull up register!)
  *
  */
 
+#define BUTTON 4 
+#define LED 12
+
 void setup() 
 {
-	pinMode(13, OUTPUT);	// initialize digital pin 13 as an output
-	pinMode(2, INPUT);	// make the pushbutton's pin an input
+	pinMode(LED, OUTPUT);	          // Initialize Pin 12 as Digital Output
+	pinMode(BUTTON, INPUT_PULLUP);	// Initialize Pin 4 as Input
+  digitalWrite(LED, LOW);
 }
 
 void loop() 
 {
-	digitalWrite(13, digitalRead(2) ? HIGH : LOW);   // 
-	delay(50);               
+	digitalWrite(LED, digitalRead(BUTTON) ? HIGH : LOW);    // if button pressed
+	delay(50);                                              // sleep 50 milliseconds            
 }
